@@ -82,9 +82,10 @@ module Pause
       end
 
       def redis
-        @redis_conn ||= ::Redis.new(host: Pause.config.redis_host,
-                                    port: Pause.config.redis_port,
-                                    db:   Pause.config.redis_db)
+        @redis_conn ||= ::Redis.new(host:     Pause.config.redis_host,
+                                    port:     Pause.config.redis_port,
+                                    db:       Pause.config.redis_db,
+                                    password: Pause.config.redis_password)
       end
 
       def white_key(scope, key = nil)

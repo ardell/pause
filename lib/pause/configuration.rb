@@ -1,6 +1,6 @@
 module Pause
   class Configuration
-    attr_writer :redis_host, :redis_port, :redis_db, :resolution, :history
+    attr_writer :redis_host, :redis_port, :redis_db, :redis_password, :resolution, :history
 
     def configure
       yield self
@@ -17,6 +17,10 @@ module Pause
 
     def redis_db
       @redis_db || '1'
+    end
+
+    def redis_password
+      @redis_password
     end
 
     def resolution
